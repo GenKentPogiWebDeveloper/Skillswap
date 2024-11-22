@@ -7,6 +7,12 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import VideoEditing from "./pages/VideoEditing";
+import Foods from "./pages/Foods";
+import Tutor from "./pages/Tutor";
+import Repair from "./pages/Repair";
+import RentABuddy from "./pages/RentABuddy";
+import GraphicDesign from "./pages/GraphicDesign";
+import Selling from "./pages/Selling";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +27,12 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/services" element={<Services />} />
             <Route path="/video-editing" element={<VideoEditing />} />
+            <Route path="/foods" element={<Foods />} />
+            <Route path="/tutor" element={<Tutor />} />
+            <Route path="/repair" element={<Repair />} />
+            <Route path="/rent-a-buddy" element={<RentABuddy />} />
+            <Route path="/graphic-design" element={<GraphicDesign />} />
+            <Route path="/selling" element={<Selling />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
