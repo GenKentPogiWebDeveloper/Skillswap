@@ -13,6 +13,8 @@ import Repair from "./pages/Repair";
 import RentABuddy from "./pages/RentABuddy";
 import GraphicDesign from "./pages/GraphicDesign";
 import Selling from "./pages/Selling";
+import Info from "./pages/Info";
+import Contact from "./pages/Contact";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +35,8 @@ const App = () => (
             <Route path="/rent-a-buddy" element={<RentABuddy />} />
             <Route path="/graphic-design" element={<GraphicDesign />} />
             <Route path="/selling" element={<Selling />} />
+            <Route path="/info" element={<Info />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
