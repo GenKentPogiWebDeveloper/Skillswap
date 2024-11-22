@@ -15,6 +15,8 @@ import GraphicDesign from "./pages/GraphicDesign";
 import Selling from "./pages/Selling";
 import Info from "./pages/Info";
 import Contact from "./pages/Contact";
+import BecomeProvider from "./pages/BecomeProvider";
+import ProviderRegistration from "./pages/ProviderRegistration";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +39,8 @@ const App = () => (
             <Route path="/selling" element={<Selling />} />
             <Route path="/info" element={<Info />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/become-provider" element={<BecomeProvider />} />
+            <Route path="/provider-registration" element={<ProviderRegistration />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
