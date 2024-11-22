@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Video, Utensils, BookOpen, Wrench, Users, PenTool, ShoppingCart, Plus } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   const services = [
@@ -14,32 +15,51 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen p-8">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="max-w-6xl mx-auto"
-      >
-        <h1 className="text-5xl font-bold text-center mb-12 bg-gradient-to-r from-violet-700 to-purple-900 bg-clip-text text-transparent">
-          SERVICES
-        </h1>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-              className="flex flex-col items-center justify-center p-6 bg-white/80 rounded-3xl shadow-lg hover:shadow-xl transition-all hover:scale-105 cursor-pointer"
-            >
-              <div className="mb-4">{service.icon}</div>
-              <h3 className="text-sm font-semibold text-gray-800">{service.name}</h3>
-            </motion.div>
-          ))}
+    <div className="min-h-screen">
+      {/* Navigation Bar */}
+      <nav className="w-full bg-white/90 backdrop-blur-sm shadow-sm fixed top-0 z-50">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+          <Link to="/" className="flex items-center space-x-2">
+            <img 
+              src="/lovable-uploads/0ac207fd-06ca-4acb-9d62-7eb28b685e9e.png" 
+              alt="Skillswap Logo" 
+              className="w-8 h-8"
+            />
+            <span className="text-xl font-bold bg-gradient-to-r from-violet-700 to-purple-900 bg-clip-text text-transparent">
+              SKILLSWAP
+            </span>
+          </Link>
         </div>
-      </motion.div>
+      </nav>
+
+      {/* Main Content */}
+      <div className="pt-20 p-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-6xl mx-auto"
+        >
+          <h1 className="text-5xl font-bold text-center mb-12 bg-gradient-to-r from-violet-700 to-purple-900 bg-clip-text text-transparent">
+            SERVICES
+          </h1>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.name}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                className="flex flex-col items-center justify-center p-6 bg-white/80 rounded-3xl shadow-lg hover:shadow-xl transition-all hover:scale-105 cursor-pointer"
+              >
+                <div className="mb-4">{service.icon}</div>
+                <h3 className="text-sm font-semibold text-gray-800">{service.name}</h3>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 };
