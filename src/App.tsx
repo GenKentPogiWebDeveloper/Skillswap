@@ -15,7 +15,7 @@ import GraphicDesign from "./pages/GraphicDesign";
 import Selling from "./pages/Selling";
 import Info from "./pages/Info";
 import Contact from "./pages/Contact";
-import BecomeAServiceProvider from "./pages/BecomeProvider";
+import BecomeProvider from "./pages/BecomeProvider";
 import ProviderRegistration from "./pages/ProviderRegistration";
 
 const queryClient = new QueryClient();

@@ -151,7 +151,6 @@ const Index = () => {
           </button>
           
           <button className="glow-button w-full sm:w-auto">
-            onClick={() => navigate('/BecomeProvider')}
             BECOME A SERVICE PROVIDER
           </button>
         </div>
