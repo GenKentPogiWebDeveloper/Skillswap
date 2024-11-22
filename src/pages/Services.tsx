@@ -9,14 +9,14 @@ const Services = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const services = [
-    { icon: <Video className="w-12 h-12" />, name: "VIDEO EDITOR" },
-    { icon: <Utensils className="w-12 h-12" />, name: "FOODS" },
-    { icon: <BookOpen className="w-12 h-12" />, name: "TUTOR" },
-    { icon: <Wrench className="w-12 h-12" />, name: "REPAIR" },
-    { icon: <Users className="w-12 h-12" />, name: "RENT A BUDDY" },
-    { icon: <PenTool className="w-12 h-12" />, name: "GRAPHIC DESIGNER" },
-    { icon: <ShoppingCart className="w-12 h-12" />, name: "SELLING" },
-    { icon: <Plus className="w-12 h-12" />, name: "MORE" },
+    { icon: <Video className="w-12 h-12" />, name: "VIDEO EDITOR", path: "/video-editing" },
+    { icon: <Utensils className="w-12 h-12" />, name: "FOODS", path: "/foods" },
+    { icon: <BookOpen className="w-12 h-12" />, name: "TUTOR", path: "/tutor" },
+    { icon: <Wrench className="w-12 h-12" />, name: "REPAIR", path: "/repair" },
+    { icon: <Users className="w-12 h-12" />, name: "RENT A BUDDY", path: "/rent-a-buddy" },
+    { icon: <PenTool className="w-12 h-12" />, name: "GRAPHIC DESIGNER", path: "/graphic-design" },
+    { icon: <ShoppingCart className="w-12 h-12" />, name: "SELLING", path: "/selling" },
+    { icon: <Plus className="w-12 h-12" />, name: "MORE", path: "/more" },
   ];
 
   const toggleMenu = () => {
@@ -140,16 +140,17 @@ const Services = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
-              <motion.div
-                key={service.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="flex flex-col items-center justify-center p-6 bg-white/80 dark:bg-gray-800/80 rounded-3xl shadow-lg hover:shadow-xl transition-all hover:scale-105 cursor-pointer"
-              >
-                <div className="mb-4 text-gray-800 dark:text-gray-200">{service.icon}</div>
-                <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-200 dark:text-glow">{service.name}</h3>
-              </motion.div>
+              <Link key={service.name} to={service.path}>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  className="flex flex-col items-center justify-center p-6 bg-white/80 dark:bg-gray-800/80 rounded-3xl shadow-lg hover:shadow-xl transition-all hover:scale-105 cursor-pointer"
+                >
+                  <div className="mb-4 text-gray-800 dark:text-gray-200">{service.icon}</div>
+                  <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-200 dark:text-glow">{service.name}</h3>
+                </motion.div>
+              </Link>
             ))}
           </div>
         </motion.div>

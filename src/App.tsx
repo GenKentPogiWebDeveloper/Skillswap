@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/theme-provider";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
+import VideoEditing from "./pages/VideoEditing";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/video-editing" element={<VideoEditing />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
