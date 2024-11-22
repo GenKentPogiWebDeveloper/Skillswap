@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
-import { Video, Utensils, BookOpen, Wrench, Users, PenTool, ShoppingCart, Plus } from "lucide-react";
+import { Video, Utensils, BookOpen, Wrench, Users, PenTool, ShoppingCart, Plus, Moon, Sun } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTheme } from "@/components/theme-provider";
 
 const Services = () => {
+  const { theme, setTheme } = useTheme();
   const services = [
     { icon: <Video className="w-12 h-12" />, name: "VIDEO EDITOR" },
     { icon: <Utensils className="w-12 h-12" />, name: "FOODS" },
@@ -15,9 +17,9 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen dark:bg-gray-900 transition-colors duration-300">
       {/* Navigation Bar */}
-      <nav className="w-full bg-white/90 backdrop-blur-sm shadow-sm fixed top-0 z-50">
+      <nav className="w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-sm fixed top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
           <Link to="/" className="flex items-center space-x-2">
             <img 
@@ -25,10 +27,26 @@ const Services = () => {
               alt="Skillswap Logo" 
               className="w-8 h-8"
             />
-            <span className="text-xl font-bold bg-gradient-to-r from-violet-700 to-purple-900 bg-clip-text text-transparent">
+            <span className="text-xl font-bold bg-gradient-to-r from-violet-700 to-purple-900 bg-clip-text text-transparent dark:from-violet-400 dark:to-purple-600">
               SKILLSWAP
             </span>
           </Link>
+
+          <div className="flex items-center space-x-6">
+            <Link to="/" className="text-gray-700 dark:text-gray-200 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">HOME</Link>
+            <Link to="/info" className="text-gray-700 dark:text-gray-200 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">INFO</Link>
+            <Link to="/contact" className="text-gray-700 dark:text-gray-200 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">CONTACT</Link>
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            >
+              {theme === "dark" ? (
+                <Sun className="w-5 h-5 text-yellow-500" />
+              ) : (
+                <Moon className="w-5 h-5 text-gray-700" />
+              )}
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -40,7 +58,7 @@ const Services = () => {
           transition={{ duration: 0.8 }}
           className="max-w-6xl mx-auto"
         >
-          <h1 className="text-5xl font-bold text-center mb-12 bg-gradient-to-r from-violet-700 to-purple-900 bg-clip-text text-transparent">
+          <h1 className="text-5xl font-bold text-center mb-12 bg-gradient-to-r from-violet-700 to-purple-900 bg-clip-text text-transparent dark:from-violet-400 dark:to-purple-600 dark:text-glow">
             SERVICES
           </h1>
 
@@ -51,10 +69,10 @@ const Services = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="flex flex-col items-center justify-center p-6 bg-white/80 rounded-3xl shadow-lg hover:shadow-xl transition-all hover:scale-105 cursor-pointer"
+                className="flex flex-col items-center justify-center p-6 bg-white/80 dark:bg-gray-800/80 rounded-3xl shadow-lg hover:shadow-xl transition-all hover:scale-105 cursor-pointer"
               >
-                <div className="mb-4">{service.icon}</div>
-                <h3 className="text-sm font-semibold text-gray-800">{service.name}</h3>
+                <div className="mb-4 text-gray-800 dark:text-gray-200">{service.icon}</div>
+                <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-200 dark:text-glow">{service.name}</h3>
               </motion.div>
             ))}
           </div>
